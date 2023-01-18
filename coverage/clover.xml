@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1674053785819" clover="3.2.0">
+  <project timestamp="1674053785819" name="All files">
+    <metrics statements="28" coveredstatements="28" conditionals="20" coveredconditionals="19" methods="4" coveredmethods="4" elements="52" coveredelements="51" complexity="0" loc="28" ncloc="28" packages="1" files="1" classes="1"/>
+    <file name="checkWinner.js" path="C:\Users\W0428615\Desktop\Jerry Files\For Course-FullStack\TicTokToe-20230118\checkWinner.js">
+      <metrics statements="28" coveredstatements="28" conditionals="20" coveredconditionals="19" methods="4" coveredmethods="4"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="60" count="3" type="stmt"/>
+      <line num="64" count="4" type="stmt"/>
+      <line num="65" count="31" type="cond" truecount="2" falsecount="0"/>
+      <line num="66" count="31" type="cond" truecount="2" falsecount="0"/>
+      <line num="67" count="29" type="stmt"/>
+      <line num="68" count="58" type="cond" truecount="2" falsecount="0"/>
+      <line num="69" count="27" type="stmt"/>
+      <line num="71" count="2" type="stmt"/>
+      <line num="73" count="4" type="stmt"/>
+      <line num="74" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="75" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="76" count="2" type="stmt"/>
+      <line num="77" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="78" count="1" type="stmt"/>
+      <line num="80" count="1" type="stmt"/>
+      <line num="82" count="4" type="stmt"/>
+      <line num="83" count="4" type="stmt"/>
+      <line num="84" count="16" type="stmt"/>
+      <line num="85" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="86" count="15" type="stmt"/>
+      <line num="87" count="15" type="cond" truecount="2" falsecount="0"/>
+      <line num="90" count="2" type="stmt"/>
+      <line num="91" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="92" count="1" type="stmt"/>
+      <line num="93" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="94" count="1" type="stmt"/>
+      <line num="108" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

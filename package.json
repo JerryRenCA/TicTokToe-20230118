@@ -5,7 +5,7 @@
   "main": "checkWinner.js",
   "scripts": {
     "start": "nodemon checkWinner.js",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",

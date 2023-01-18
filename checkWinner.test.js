@@ -1,5 +1,6 @@
 const { describe, expect, test, beforeAll } = require('@jest/globals')
-let { checkWinner, setOrder } = require('./checkWinner.js')
+const { checkWinner, setOrder } = require('./checkWinner.js')
+// import path from './testImport.js'
 
 describe('check order 3', () => {
     beforeAll(() => {
