@@ -14,6 +14,30 @@ describe('check order 3', () => {
         ]
         expect(checkWinner(board)).toBe('x')
     })
+    test('order 3 case:', () => {
+        const board = [
+            'x', 'o', 'o',
+            'x', 'o', 'x',
+            'o', 'o', null
+        ]
+        expect(checkWinner(board)).toBe('o')
+    })
+    test('order 3 case:', () => {
+        const board = [
+            'x', 'x', 'o',
+            'x', 'o', 'x',
+            'o', null, null
+        ]
+        expect(checkWinner(board)).toBe('o')
+    })
+    test('order 3 case:', () => {
+        const board = [
+            'x', null, 'o',
+            'x', 'x', 'x',
+            'o', null, 'x'
+        ]
+        expect(checkWinner(board)).toBe('x')
+    })
 })
 
 describe('check order 4', () => {
@@ -48,8 +72,8 @@ describe('check order 5', () => {
         const board = [
             null, 'x', 'o','o','o',
             'x', null, 'o','o','o',
-            'o', 'o', null,'o',null,
-            'o', 'o', null,null,'x',
+            'o', 'o', null,null,null,
+            'o', 'o', null,'o','x',
             'o', 'o', null,'o',null,
         ]
         expect(checkWinner(board)).toBe(null)
