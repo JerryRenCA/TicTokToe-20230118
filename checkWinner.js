@@ -1,49 +1,60 @@
 let rowNumber = 5;
-function setOrder(_rowNumber) {
+let checkRowNumber = 5;
+function setOrder(_rowNumber, _checkRowNumber = 5) {
   rowNumber = _rowNumber;
+  checkRowNumber = _checkRowNumber;
 }
 
 function checkWinner(boardToTest) {
-  const checkRowCol = (i, boardToTest, inc) => {
-    const firstId = inc == 1 ? rowNumber * i : i;
+  const checkRowCol = (i, boardToTest, inc,pivot) => {
+    const firstId = pivot+(inc == 1 ? rowNumber * i : i);
+
     if (!boardToTest[firstId]) return null;
-    for (let j = 1; j < rowNumber; j++) {
+    for (let j = 1; j < checkRowNumber; j++) {
       if (boardToTest[firstId] != boardToTest[firstId + j * inc]) return null;
     }
     return boardToTest[firstId];
   };
-  const checkCross = (boardToTest, inc) => {
-    const firstId = inc == 1 ? 0 : rowNumber - 1;
+  const checkCross = (boardToTest, inc,pivot) => {
+    const firstId = pivot+(inc == 1 ? 0 : checkRowNumber - 1);
+
     if (!boardToTest[firstId]) return null;
-    console.log(firstId)
-    for (let j = 1; j < rowNumber; j++) {
+    // console.log(firstId);
+    for (let j = 1; j < checkRowNumber; j++) {
       if (boardToTest[firstId] != boardToTest[firstId + j * (rowNumber + inc)])
         return null;
     }
     return boardToTest[firstId];
   };
   let rzlt = null;
-  for (let i = 0; i < rowNumber; i++) {
-    rzlt = checkRowCol(i, boardToTest, 1); // check ith row
+  for (let pivot = 0; pivot < rowNumber * rowNumber; pivot++) {
+    const col=pivot%rowNumber;
+    const row=(pivot-col)/rowNumber
+    if(rowNumber-col<checkRowNumber)continue
+    if(rowNumber-row<checkRowNumber)continue
+    // console.log(pivot, col,row,rowNumber,checkRowNumber)
+    for (let i = 0; i < checkRowNumber; i++) {
+      rzlt = checkRowCol(i, boardToTest, 1,pivot); // check ith row
+      if (rzlt) return rzlt;
+      rzlt = checkRowCol(i, boardToTest, rowNumber,pivot); // check ith col
+      if (rzlt) return rzlt;
+    }
+
+    rzlt = checkCross(boardToTest, 1,pivot); // check forward cross
     if (rzlt) return rzlt;
-    rzlt = checkRowCol(i, boardToTest, rowNumber); // check ith col
+    rzlt = checkCross(boardToTest, -1,pivot); // check backward cross
     if (rzlt) return rzlt;
   }
-
-  rzlt = checkCross(boardToTest, 1); // check forward cross
-  if (rzlt) return rzlt;
-  rzlt = checkCross(boardToTest, -1); // check backward cross
-  if (rzlt) return rzlt;
   return null;
 }
 
-const board = [
-  'x', 'x', 'o','o','o',
-  'x', 'x', 'o','o','o',
-  'o', 'o', 'x','o','o',
-  'o', 'o', null,'x','x',
-  'o', 'o', null,'o','x',
-]
-console.log(checkWinner(board))
+// const board = [
+//   null, 'x', 'o','o','o',
+//   'x', null, 'o','o','o',
+//   'o', 'o', null,null,null,
+//   'o', 'o', null,'o','x',
+//   'o', 'o', null,'o',null,
+// ]
+// console.log(checkWinner(board));
 
 module.exports = { checkWinner, setOrder };
